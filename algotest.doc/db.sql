@@ -1,0 +1,10 @@
+CREATE TABLE order_items (order_id int4 NOT NULL, product_id int4 NOT NULL, quantity int4 NOT NULL);
+CREATE TABLE orders (id SERIAL NOT NULL, user_id int4 NOT NULL, status varchar(50) NOT NULL, created_at timestamp NOT NULL, PRIMARY KEY (id));
+CREATE TABLE products (id SERIAL NOT NULL, name varchar(255) NOT NULL, price int4 NOT NULL, created_at timestamp NOT NULL, PRIMARY KEY (id));
+CREATE TABLE users (id SERIAL NOT NULL, name varchar(100) NOT NULL, email varchar(70) NOT NULL UNIQUE, password varchar(255) NOT NULL, created_at timestamp NOT NULL, PRIMARY KEY (id));
+CREATE INDEX orders_id ON orders (id);
+CREATE INDEX products_id ON products (id);
+CREATE INDEX users_id ON users (id);
+ALTER TABLE orders ADD CONSTRAINT FKorders322301 FOREIGN KEY (user_id) REFERENCES users (id);
+ALTER TABLE order_items ADD CONSTRAINT FKorder_item407742 FOREIGN KEY (order_id) REFERENCES orders (id);
+ALTER TABLE order_items ADD CONSTRAINT FKorder_item694388 FOREIGN KEY (product_id) REFERENCES products (id);

@@ -1,0 +1,5 @@
+1. 3jam
+
+2. 2 tahun
+
+3. melakukan crosscheck log pada server, mematikan sementara fitur yg terkena bug
